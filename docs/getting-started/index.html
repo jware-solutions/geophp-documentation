@@ -1,0 +1,148 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/geophp-documentation/media/images/favicon.ico" type="image/X-icon">
+    <title></title>
+
+    <link rel="stylesheet" href="/geophp-documentation/media/css/presidium.css" type="text/css" media="all"/>
+
+</head>
+<body>
+
+
+
+<div id="presidium-navigation">
+    <div class="placeholder">
+
+</div>
+</div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">Getting Started</h1>
+            <hr/>
+            <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
+                
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="getting-started" data-id="content/_getting-started/getting-started.md"></span>
+    
+    
+    <div class='article-title '>
+        <h2>
+            Getting Started 
+
+
+
+
+
+
+        </h2>
+        <div class="permalink">
+            <a class="link-icon" href="/geophp-documentation/getting-started/#getting-started" title="Permalink to this article"></a>
+        </div>
+    </div>
+    <div class="article-header">
+        
+    
+ 
+    
+ 
+    
+    
+ 
+    
+
+    </div>
+
+    <article><h2 id="pre-requisites">Pre-requisites</h2>
+
+<p>GeoPHP was tested on PHP &gt;= 7. Please, let PHP 5 die!</p>
+
+<h2 id="installation">Installation</h2>
+
+<p>Install the library running:</p>
+
+<p><code class="highlighter-rouge">composer require jware/geophp</code></p>
+
+<h2 id="usage">Usage</h2>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use \JWare\GeoPHP\Polygon;
+use \JWare\GeoPHP\Point;
+
+$polygon = new Polygon([
+    new Point(1, -1),
+    new Point(2, 1),
+    new Point(3, -1),
+    new Point(2, -2),
+    new Point(1, -1)
+]);
+
+$point = new Point(-1, 2);
+$point2 = new Point(2, 2);
+
+$polygon-&gt;containsPoint($point); // False
+$polygon-&gt;containsPoint($point2); // True
+</code></pre></div></div>
+
+<p>Please read the documentation to see the full method list available.</p>
+</article>
+
+    <hr/>
+    
+    
+</div>
+
+            </section>
+            <footer>
+  <div class="spacer"></div>
+  <div>
+      
+        <p>&copy; Copyright 2020 Made with love ❤</p>
+        <p class="text-muted">Generated on Jan 21, 2020</p>
+        
+  </div>
+</footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div id="presidium-modal">
+    <div class="modal-close">
+        <span onclick="document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
+    </div>
+    <img/>
+    <div class="modal-caption"></div>
+</div>
+
+<!-- Components -->
+<script src="/geophp-documentation/media/js/presidium.js"></script>
+<script>
+    window.presidium.config = {
+        name: "",
+        baseurl:  "/geophp-documentation",
+        brandurl:  "",
+        repourl:  ""
+    }
+    window.presidium['versions'] = { siteroot: "/geophp-documentation" };
+    window.presidium.menu.load({"logo":"/geophp-documentation/media/images/logo.jpg","brandName":"","brandUrl":"","baseUrl":"/geophp-documentation/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"newTab":false,"path":"content/_overview/","url":"/geophp-documentation/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/geophp-documentation/#geophp","slug":"geophp","title":"GeoPHP","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"newTab":false,"path":"content/_getting-started/","url":"/geophp-documentation/getting-started/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/geophp-documentation/getting-started/#getting-started","slug":"getting-started","title":"Getting Started","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_geometries/","title":"Geometries","level":1,"collapsed":false,"newTab":false,"path":"content/_geometries/","url":"/geophp-documentation/geometries/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_geometries/00_Introduction.md","path":"content/_geometries/00_Introduction.md","url":"/geophp-documentation/geometries/#introduction","slug":"introduction","title":"Introduction","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/01_Point.md","path":"content/_geometries/01_Point.md","url":"/geophp-documentation/geometries/#point","slug":"point","title":"Point","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/02_Line.md","path":"content/_geometries/02_Line.md","url":"/geophp-documentation/geometries/#line","slug":"line","title":"Line","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/03_Polygon.md","path":"content/_geometries/03_Polygon.md","url":"/geophp-documentation/geometries/#polygon","slug":"polygon","title":"Polygon","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_contributing/","title":"Contributing","level":1,"collapsed":true,"newTab":false,"path":"content/_contributing/","url":"/geophp-documentation/contributing/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_contributing/contributing.md","path":"content/_contributing/contributing.md","url":"/geophp-documentation/contributing/#contributing","slug":"contributing","title":"Contributing","level":2,"collapsed":true,"roles":[],"scope":[]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "/geophp-documentation" });
+</script>
+
+
+
+
+
+</body>
+</html>

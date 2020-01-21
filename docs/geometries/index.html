@@ -1,0 +1,997 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="/geophp-documentation/media/images/favicon.ico" type="image/X-icon">
+    <title></title>
+
+    <link rel="stylesheet" href="/geophp-documentation/media/css/presidium.css" type="text/css" media="all"/>
+
+</head>
+<body>
+
+
+
+<div id="presidium-navigation">
+    <div class="placeholder">
+
+</div>
+</div>
+<div id="presidium-container" class="container-fluid">
+    <div class="row">
+        <div id="presidium-content" class="col-lg-10 col-md-12">
+            <h1 class="page-title">Geometries</h1>
+            <hr/>
+            <section>
+                <div class="well" id="no-content-warning">
+    <span class="glyphicon glyphicon-info-sign"> </span> No articles match the selected filter.
+</div>
+                
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="introduction" data-id="content/_geometries/00_Introduction.md"></span>
+    
+    
+    <div class='article-title '>
+        <h2>
+            Introduction 
+
+
+
+
+
+
+        </h2>
+        <div class="permalink">
+            <a class="link-icon" href="/geophp-documentation/geometries/#introduction" title="Permalink to this article"></a>
+        </div>
+    </div>
+    <div class="article-header">
+        
+    
+ 
+    
+ 
+    
+    
+ 
+    
+
+    </div>
+
+    <article><p>GeoPHP offers some structures to work with geospatial data called <strong>Geometries</strong> . More will be added as needed by the community. At the moment they are available:</p>
+
+<ul>
+  <li><a href="#point">Point</a></li>
+  <li><a href="#line">Line</a></li>
+  <li><a href="#polygon">Polygon</a></li>
+</ul>
+</article>
+
+    <hr/>
+    
+    
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="point" data-id="content/_geometries/01_Point.md"></span>
+    
+    
+    <div class='article-title '>
+        <h2>
+            Point 
+
+
+
+
+
+
+        </h2>
+        <div class="permalink">
+            <a class="link-icon" href="/geophp-documentation/geometries/#point" title="Permalink to this article"></a>
+        </div>
+    </div>
+    <div class="article-header">
+        
+    
+ 
+    
+ 
+    
+    
+ 
+    
+
+    </div>
+
+    <article><p>Represents a single point in 2D space.</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="newfloat-x-float-y-point"><strong>new(float $x, float $y): Point</strong></h2>
+
+<p>Creates a new Point.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use JWare\GeoPHP\Point;
+
+$point = new Point(3, 28);
+$point2 = new Point($x=12.3, $y=-9.21);
+</code></pre></div></div>
+
+<h2 id="clone-point"><strong>clone(): Point</strong></h2>
+
+<p>Creates a Point’s clone.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point2 = $point-&gt;clone();
+
+$point2-&gt;isEqual($point); // True
+</code></pre></div></div>
+
+<h2 id="getx-float"><strong>getX(): float</strong></h2>
+
+<p>X coordinate getter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point-&gt;getX(); // 3
+</code></pre></div></div>
+
+<h2 id="setxfloat-x-point"><strong>setX(float $x): Point</strong></h2>
+
+<p>X coordinate setter. Returns the instance for chainable behaviour.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point-&gt;setX(33)-&gt;getX(); // 33
+</code></pre></div></div>
+
+<h2 id="gety-float"><strong>getY(): float</strong></h2>
+
+<p>Y coordinate getter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point-&gt;getY(); // 28
+</code></pre></div></div>
+
+<h2 id="setyfloat-y-point"><strong>setY(float $y): Point</strong></h2>
+
+<p>Y coordinate setter. Returns the instance for chainable behaviour.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point-&gt;setY(42)-&gt;getY(); // 42
+</code></pre></div></div>
+
+<h2 id="getxandy-array"><strong>getXandY(): array</strong></h2>
+
+<p>X and Y coordinates getter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point-&gt;getXandY(); // [3, 28]
+</code></pre></div></div>
+
+<h2 id="isequalpoint-otherpoint-bool"><strong>isEqual(Point $otherPoint): bool</strong></h2>
+
+<p>Checks if two point have the same coordinates.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 28);
+$point2 = new Point(3, 28);
+$point3 = new Point(23, 12);
+
+$point-&gt;isEqual($point2); // True
+$point-&gt;isEqual($point3); // False
+</code></pre></div></div>
+
+<h2 id="getmagnitude-float"><strong>getMagnitude(): float</strong></h2>
+
+<p>Computes the magnitude of the point’s vector.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(1, 2);
+$point-&gt;getMagnitude(); // 2.236067977
+</code></pre></div></div>
+
+<h2 id="fromradianstodegrees-point"><strong>fromRadiansToDegrees(): Point</strong></h2>
+
+<p>Converts x and y components of the Point from radians to degrees. Returns a Point with the new components.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(2, 3);
+
+$pointConverted = $point-&gt;fromRadiansToDegrees();
+$pointConverted-&gt;getXAndY(); // [114.5916, 171.8873]
+</code></pre></div></div>
+
+<h2 id="fromdegreestoradians-point"><strong>fromDegreesToRadians(): Point</strong></h2>
+
+<p>Converts x and y components of the Point from degrees to radians. Returns a Point with the new components.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(57.29578, 0);
+
+$pointConverted = $point-&gt;fromDegreesToRadians();
+$pointConverted-&gt;getXAndY(); // [1, 0]
+</code></pre></div></div>
+
+<h2 id="getanglepoint-otherpoint-bool-indegrees--true-float"><strong>getAngle(Point $otherPoint, bool $inDegrees = true): float</strong></h2>
+
+<p>Computes the angle between two points. If <code class="highlighter-rouge">$inDegrees</code> is true the result is returned in degrees, in radians otherwise.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point1 = new Point(2, 0);
+$point2 = new Point(2, 2);
+
+$point1-&gt;getAngle($point2); // 45
+</code></pre></div></div>
+
+<h2 id="dotproductpoint-otherpoint-float"><strong>dotProduct(Point $otherPoint): float</strong></h2>
+
+<p>Computes the dot product of the two points: dot = x1 * x2 + y1 * y2.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point1 = new Point(2, 4.5);
+$point2 = new Point(1.5, 0.5);
+
+$point1-&gt;dotProduct($point2); // 5.25s
+</code></pre></div></div>
+
+<h2 id="crossproductpoint-point2-point-point3-float"><strong>crossProduct(Point $point2, Point $point3): float</strong></h2>
+
+<p>Computes the cross product of the three points. A positive value implies $this → #point2 → $point3 is counter-clockwise, negative implies clockwise.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$pointA = new Point(1, 2);
+$pointB = new Point(3, 5);
+$pointC = new Point(7, 12);
+
+$pointA-&gt;crossProduct($pointB, $pointC); // 2
+</code></pre></div></div>
+
+<h2 id="euclideandistancepoint-otherpoint-float"><strong>euclideanDistance(Point $otherPoint): float</strong></h2>
+
+<p>Computes the euclidean distance between two points.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(1, 2);
+$point2 = new Point(4, 5);
+
+$point-&gt;euclideanDistance($point2); // 4.243
+</code></pre></div></div>
+
+<h2 id="intersectslineline-line-bool"><strong>intersectsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the point intersects a line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsLine($line); // True
+$point2-&gt;intersectsLine($line); // False
+</code></pre></div></div>
+
+<h2 id="intersectspointpoint-otherpoint-bool"><strong>intersectsPoint(Point $otherPoint): bool</strong></h2>
+
+<p>Checks whether the point intersects with another point. Two points intersect if they have the same X and Y coordinates (same as <code class="highlighter-rouge">isEqual</code> method).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+$point3 = new Point(3, 4);
+
+$point-&gt;intersectsPoint($point2); // False
+$point2-&gt;intersectsPoint($point3); // True
+</code></pre></div></div>
+
+<h2 id="intersectspolygonpolygon-polygon-bool"><strong>intersectsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the point intersects with a polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(1, 1),
+    new Point(3, 3),
+    new Point(2, 7),
+    new Point(4, 5),
+    new Point(7, 5),
+    new Point(1, 1)
+]);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsPolygon($Polygon); // True
+$point2-&gt;intersectsPolygon($Polygon); // False
+</code></pre></div></div>
+</article>
+
+    <hr/>
+    
+    
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="line" data-id="content/_geometries/02_Line.md"></span>
+    
+    
+    <div class='article-title '>
+        <h2>
+            Line 
+
+
+
+
+
+
+        </h2>
+        <div class="permalink">
+            <a class="link-icon" href="/geophp-documentation/geometries/#line" title="Permalink to this article"></a>
+        </div>
+    </div>
+    <div class="article-header">
+        
+    
+ 
+    
+ 
+    
+    
+ 
+    
+
+    </div>
+
+    <article><p>A line segment made up of exactly two <a href="#point">Points</a>.</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="newpoint-start-point-end-line"><strong>new(Point $start, Point $end): Line</strong></h2>
+
+<p>Creates a new Line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use JWare\GeoPHP\Line;
+use JWare\GeoPHP\Point;
+
+$line = new Line(new Point(3, 28), new Point(-2, -9));
+</code></pre></div></div>
+
+<h2 id="clone-line"><strong>clone(): Line</strong></h2>
+
+<p>Creates a Line’s clone</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(new Point(3, 28), new Point(-2, -9));
+$line2 = $line-&gt;clone();
+</code></pre></div></div>
+
+<h2 id="getstart-point"><strong>getStart(): Point</strong></h2>
+
+<p>Starting point’s getter of the line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(new Point(1, -2), new Point(-2, -9));
+$line-&gt;getStart(); // Point(1, -2)
+</code></pre></div></div>
+
+<h2 id="setstartpoint-start-line"><strong>setStart(Point $start): Line</strong></h2>
+
+<p>Starting point’s setter. Returns the instance for chainable behaviour.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(new Point(1, -2), new Point(-2, -9));
+$line-&gt;setStart(new Point(9, 9))-&gt;getStart(); // Point(9, 9)
+</code></pre></div></div>
+
+<h2 id="getend-point"><strong>getEnd(): Point</strong></h2>
+
+<p>Ending point’s getter of the line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(new Point(1, -2), new Point(-2, -9));
+$line-&gt;getEnd(); // Point(-2, -9)
+</code></pre></div></div>
+
+<h2 id="setendpoint-end-line"><strong>setEnd(Point $end): Line</strong></h2>
+
+<p>Ending point’s setter. Returns the instance for chainable behaviour.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(new Point(1, -2), new Point(-2, -9));
+$line-&gt;setEnd(new Point(92, 19))-&gt;getEnd(); // Point(92, 19)
+</code></pre></div></div>
+
+<h2 id="determinant-float"><strong>determinant(): float</strong></h2>
+
+<p>Computes the determinant of the line.
+Determinant = line.start.x * line.end.y - line.start.y * line.end.x</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1.34, 2.87),
+    new Point(3.23, 4.5)
+);
+
+$line-&gt;determinant(); // -3.2401
+</code></pre></div></div>
+
+<h2 id="dx-float"><strong>dx(): float</strong></h2>
+
+<p>Computes the difference in ‘x’ components (Δx): line.end.x - line.start.x.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(2.77, 4.23),
+    new Point(2.77, 7.23)
+);
+
+$line-&gt;dx(); // 0
+</code></pre></div></div>
+
+<h2 id="dy-float"><strong>dy(): float</strong></h2>
+
+<p>Computes the difference in ‘y’ components (Δy): line.end.y - line.start.y.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(2.77, 14.32),
+    new Point(3.77, 9.55)
+);
+
+$line-&gt;dy(); // -4.77
+</code></pre></div></div>
+
+<h2 id="slope-float"><strong>slope(): float</strong></h2>
+
+<p>Computes the slope of a line: line.dy() / line.dx()</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(3.45, 11.3),
+    new Point(0.87, 34.243)
+);
+
+$line-&gt;slope(); // -8.8926
+</code></pre></div></div>
+
+<h2 id="getpoints-array"><strong>getPoints(): array</strong></h2>
+
+<p>Getter for starting and ending points.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(2, 34),
+    new Point(2, 11)
+);
+
+$points = $line-&gt;getPoints(); // [Point(2, 34), Point(2, 11)]
+$points[0]-&gt;isEquals($points[1]); // False
+</code></pre></div></div>
+
+<h2 id="intersectspointpoint-point-bool"><strong>intersectsPoint(Point $point): bool</strong></h2>
+
+<p>Checks whether the line intersects a point.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$point1 = new Point(3, 3);
+$point2 = new Point(-1, 1);
+
+$line-&gt;intersectsPoint($point1); // True
+$line-&gt;intersectsPoint($point2); // False
+</code></pre></div></div>
+
+<h2 id="intersectslineline-line-bool"><strong>intersectsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the line intersects another line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line1 = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$line2 = new Line(
+    new Point(3, 3),
+    new Point(5, 1)
+);
+$line3 = new Line(
+    new Point(-1, 1),
+    new Point(-5, -10)
+);
+
+$line1-&gt;intersectsLine($line2); // True
+$line1-&gt;intersectsLine($line3); // False
+</code></pre></div></div>
+
+<h2 id="intersectspolygonpolygon-polygon-bool"><strong>intersectsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the line intersects a polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$polygon = new Polygon([
+    new Point(2, 4),
+    new Point(4, 4),
+    new Point(4, 2),
+    new Point(3, 1),
+    new Point(2.5, 3),
+    new Point(2, 4)
+]);
+
+$line-&gt;intersectsPolygon($polygon); // True
+</code></pre></div></div>
+
+<h2 id="euclideandistancepoint-otherpoint-float"><strong>euclideanDistance(Point $otherPoint): float</strong></h2>
+
+<p>Computes the euclidean distance between two points.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(1, 2);
+$point2 = new Point(4, 5);
+
+$point-&gt;euclideanDistance($point2); // 4.243
+</code></pre></div></div>
+
+<h2 id="intersectslineline-line-bool-1"><strong>intersectsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the point intersects a line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsLine($line); // True
+$point2-&gt;intersectsLine($line); // False
+</code></pre></div></div>
+
+<h2 id="intersectspointpoint-otherpoint-bool"><strong>intersectsPoint(Point $otherPoint): bool</strong></h2>
+
+<p>Checks whether the point intersects with another point. Two points intersect if they have the same X and Y coordinates (same as <code class="highlighter-rouge">isEqual</code> method).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+$point3 = new Point(3, 4);
+
+$point-&gt;intersectsPoint($point2); // False
+$point2-&gt;intersectsPoint($point3); // True
+</code></pre></div></div>
+
+<h2 id="intersectspolygonpolygon-polygon-bool-1"><strong>intersectsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the point intersects with a polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(1, 1),
+    new Point(3, 3),
+    new Point(2, 7),
+    new Point(4, 5),
+    new Point(7, 5),
+    new Point(1, 1)
+]);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsPolygon($Polygon); // True
+$point2-&gt;intersectsPolygon($Polygon); // False
+</code></pre></div></div>
+</article>
+
+    <hr/>
+    
+    
+</div>
+
+
+
+
+
+
+
+
+<div class="article" data-roles="">
+    <span class="anchor" id="polygon" data-id="content/_geometries/03_Polygon.md"></span>
+    
+    
+    <div class='article-title '>
+        <h2>
+            Polygon 
+
+
+
+
+
+
+        </h2>
+        <div class="permalink">
+            <a class="link-icon" href="/geophp-documentation/geometries/#polygon" title="Permalink to this article"></a>
+        </div>
+    </div>
+    <div class="article-header">
+        
+    
+ 
+    
+ 
+    
+    
+ 
+    
+
+    </div>
+
+    <article><p>A bounded two-dimensional area.</p>
+
+<h1 id="methods">Methods</h1>
+
+<h2 id="newarray-points-polygon"><strong>new(array $points): Polygon</strong></h2>
+
+<p>Creates a new Polygon. The polygon has to have at least three diferent points, and first and last point must have the same coordinates! Otherwise it will throw <code class="highlighter-rouge">\JWare\GeoPHP\Exceptions\NotEnoughPointsException</code> or <code class="highlighter-rouge">\JWare\GeoPHP\Exceptions\FirstAndLastPointNotEqualException</code> exceptions respectively.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>use JWare\GeoPHP\Poing;
+use JWare\GeoPHP\Polygon;
+use \JWare\GeoPHP\Exceptions\FirstAndLastPointNotEqualException;
+
+$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0),
+]);
+
+// Invalid polygons
+try {
+    // Has only 2 different points!
+    $invalidPolygon = new Polygon([
+        new Point(0, 1),
+        new Point(3, 1),
+        new Point(1, 1) 
+    ]);
+} catch (NotEnoughPointsException $e) {
+    echo 'Opps! Exception: ',  $e-&gt;getMessage(), "\n";
+}
+
+try {
+    $invalidPolygon = new Polygon([
+        new Point(0, 1),
+        new Point(3, 1),
+        new Point(4, 2),
+        new Point(1, 1) // Not equals to first point
+    ]);
+} catch (FirstAndLastPointNotEqualException $e) {
+    echo 'Opps! Exception: ',  $e-&gt;getMessage(), "\n";
+}
+</code></pre></div></div>
+
+<h2 id="clone-polygon"><strong>clone(): Polygon</strong></h2>
+
+<p>Creates a Polygon’s clone</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0),
+]);
+
+$clone = $polygon-&gt;clone();
+</code></pre></div></div>
+
+<h2 id="getpoints-array"><strong>getPoints(): array</strong></h2>
+
+<p>All the polygon’s points’ getter.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(2, 4),
+    new Point(0, 0)
+]);
+
+$polygon-&gt;getPoints(); // [Point(0, 0), Point(4, 0), Point(2, 4), Point(0, 0)]
+
+</code></pre></div></div>
+
+<h2 id="setpointint-idx-point-point-polygon"><strong>setPoint(int $idx, Point $point): Polygon</strong></h2>
+
+<p>Setter for one point of the polygon. <code class="highlighter-rouge">$idx</code> is the index in the array (starting from 0) of the polygon to replace and <code class="highlighter-rouge">$point</code> Point to put in the specified position. <code class="highlighter-rouge">$idx</code> can’t be the first nor the last Point of the Polygon, otherwise it will throw an <code class="highlighter-rouge">\JWare\GeoPHP\Exceptions\SettingPointException</code> exception.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(2, 4),
+    new Point(0, 0)
+]);
+
+$polygon-&gt;setPoint(2, new Point(5, 6));
+$polygon-&gt;getPoints(); // [Point(0, 0), Point(4, 0), Point(5, 6), Point(0, 0)]
+</code></pre></div></div>
+
+<h2 id="getcentroid-point"><strong>getCentroid(): Point</strong></h2>
+
+<p>Computes the polygon’s centroid.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(-81, 41),
+    new Point(-88, 36),
+    new Point(-84, 31),
+    new Point(-80, 33),
+    new Point(-77, 39),
+    new Point(-81, 41)
+]);
+
+$centroid = $polygon-&gt;getCentroid(); // Point(-82, 36)
+</code></pre></div></div>
+
+<h2 id="area-float"><strong>area(): float</strong></h2>
+
+<p>Get the Polygon’s area. Uses the <a href="https://en.wikipedia.org/wiki/Shoelace_formula">Shoelace Formula</a>.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0),
+]);
+
+$polygon1-&gt;area(); // 16
+</code></pre></div></div>
+
+<h2 id="intersectspointpoint-point-bool"><strong>intersectsPoint(Point $point): bool</strong></h2>
+
+<p>Checks whether the polygon intersects a point. A Polygon intersects a Point if at least one of its lines intersects the Point.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(2, 4),
+    new Point(4, 4),
+    new Point(5, 2),
+    new Point(3, 1),
+    new Point(2.5, 3),
+    new Point(2, 4)
+]);
+
+$polygon-&gt;intersectsPoint(new Point(3, 4); // True
+$polygon-&gt;intersectsPoint(new Point(5, 4); // False
+</code></pre></div></div>
+
+<h2 id="intersectslineline-line-bool"><strong>intersectsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the polygon intersects a line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(2, 4),
+    new Point(4, 4),
+    new Point(4, 2),
+    new Point(3, 1),
+    new Point(2.5, 3),
+    new Point(2, 4)
+]);
+
+$line1 = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+
+$line2 = new Line(
+    new Point(-1, 1),
+    new Point(-5, -10)
+);
+
+$polygon-&gt;intersectsLine($line1); // True
+$polygon-&gt;intersectsLine($line2); // False
+</code></pre></div></div>
+
+<h2 id="intersectspolygonpolygon-polygon-bool"><strong>intersectsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the polygon intersects another polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon1 = new Polygon([
+    new Point(2, 4),
+    new Point(4, 4),
+    new Point(5, 2),
+    new Point(3, 1),
+    new Point(2.5, 3),
+    new Point(2, 4)
+]);
+
+$polygon2 = new Polygon([
+    new Point(-3, -4),
+    new Point(-1, -5),
+    new Point(-2, -6),
+    new Point(-3, -4)
+]);
+
+$polygon3 = new Polygon([
+    new Point(4, 3),
+    new Point(6, 2.5),
+    new Point(6, 1.5),
+    new Point(4.5, 1.25),
+    new Point(4, 3)
+]);
+
+$polygon1-&gt;intersectsPolygon($polygon3); // True
+$polygon1-&gt;intersectsPolygon($polygon2); // False
+</code></pre></div></div>
+
+<h2 id="euclideandistancepoint-otherpoint-float"><strong>euclideanDistance(Point $otherPoint): float</strong></h2>
+
+<p>Computes the euclidean distance between two points.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(1, 2);
+$point2 = new Point(4, 5);
+
+$point-&gt;euclideanDistance($point2); // 4.243
+</code></pre></div></div>
+
+<h2 id="intersectslineline-line-bool-1"><strong>intersectsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the point intersects a line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$line = new Line(
+    new Point(1, 1),
+    new Point(5, 5)
+);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsLine($line); // True
+$point2-&gt;intersectsLine($line); // False
+</code></pre></div></div>
+
+<h2 id="intersectspointpoint-otherpoint-bool"><strong>intersectsPoint(Point $otherPoint): bool</strong></h2>
+
+<p>Checks whether the point intersects with another point. Two points intersect if they have the same X and Y coordinates (same as <code class="highlighter-rouge">isEqual</code> method).</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+$point3 = new Point(3, 4);
+
+$point-&gt;intersectsPoint($point2); // False
+$point2-&gt;intersectsPoint($point3); // True
+</code></pre></div></div>
+
+<h2 id="intersectspolygonpolygon-polygon-bool-1"><strong>intersectsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the point intersects with a polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(1, 1),
+    new Point(3, 3),
+    new Point(2, 7),
+    new Point(4, 5),
+    new Point(7, 5),
+    new Point(1, 1)
+]);
+$point = new Point(3, 3);
+$point2 = new Point(3, 4);
+
+$point-&gt;intersectsPolygon($Polygon); // True
+$point2-&gt;intersectsPolygon($Polygon); // False
+</code></pre></div></div>
+
+<h2 id="containspointpoint-point-bool"><strong>containsPoint(Point $point): bool</strong></h2>
+
+<p>Checks whether a point is inside a polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0)
+]);
+
+$polygon-&gt;containsPoint(new Point(2, 2)); // True
+$polygon-&gt;containsPoint(new Point(10, 12)); // False
+</code></pre></div></div>
+
+<h2 id="containslineline-line-bool"><strong>containsLine(Line $line): bool</strong></h2>
+
+<p>Checks whether the polygon contains a line.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0)
+]);
+$line1 = new Line(
+    new Point(2, 2),
+    new Point(3, 3)
+);
+$line2 = new Line(
+    new Point(-1, -1),
+    new Point(2, 3)
+);
+
+$polygon-&gt;containsLine($line1); // True
+$polygon-&gt;containsLine($line2); // False
+</code></pre></div></div>
+
+<h2 id="containspolygonpolygon-polygon-bool"><strong>containsPolygon(Polygon $polygon): bool</strong></h2>
+
+<p>Checks whether the polygon contains another polygon.</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$polygon1 = new Polygon([
+    new Point(0, 0),
+    new Point(4, 0),
+    new Point(4, 4),
+    new Point(0, 4),
+    new Point(0, 0)
+]);
+$polygon2 = new Polygon([
+    new Point(4, 0),
+    new Point(8, 0),
+    new Point(8, 4),
+    new Point(4, 4),
+    new Point(4, 0)
+]);
+
+$polygon3 = new Polygon([
+    new Point(1, 2),
+    new Point(2, 2),
+    new Point(2, 3),
+    new Point(1, 2)
+]);
+
+$polygon1-&gt;containsPolygon($polygon3) // True
+$polygon1-&gt;containsPolygon($polygon2) // False
+</code></pre></div></div>
+</article>
+
+    <hr/>
+    
+    
+</div>
+
+            </section>
+            <footer>
+  <div class="spacer"></div>
+  <div>
+      
+        <p>&copy; Copyright 2020 Made with love ❤</p>
+        <p class="text-muted">Generated on Jan 21, 2020</p>
+        
+  </div>
+</footer>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+
+<div id="presidium-modal">
+    <div class="modal-close">
+        <span onclick="document.getElementById('presidium-modal').style.display = 'none'">&times;</span>
+    </div>
+    <img/>
+    <div class="modal-caption"></div>
+</div>
+
+<!-- Components -->
+<script src="/geophp-documentation/media/js/presidium.js"></script>
+<script>
+    window.presidium.config = {
+        name: "",
+        baseurl:  "/geophp-documentation",
+        brandurl:  "",
+        repourl:  ""
+    }
+    window.presidium['versions'] = { siteroot: "/geophp-documentation" };
+    window.presidium.menu.load({"logo":"/geophp-documentation/media/images/logo.jpg","brandName":"","brandUrl":"","baseUrl":"/geophp-documentation/","roles":{"label":"","all":"","options":[]},"children":[{"type":"section","id":"content/_overview/","title":"Overview","level":1,"collapsed":true,"newTab":false,"path":"content/_overview/","url":"/geophp-documentation/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_overview/overview.md","path":"content/_overview/overview.md","url":"/geophp-documentation/#geophp","slug":"geophp","title":"GeoPHP","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_getting-started/","title":"Getting Started","level":1,"collapsed":true,"newTab":false,"path":"content/_getting-started/","url":"/geophp-documentation/getting-started/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_getting-started/getting-started.md","path":"content/_getting-started/getting-started.md","url":"/geophp-documentation/getting-started/#getting-started","slug":"getting-started","title":"Getting Started","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_geometries/","title":"Geometries","level":1,"collapsed":false,"newTab":false,"path":"content/_geometries/","url":"/geophp-documentation/geometries/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_geometries/00_Introduction.md","path":"content/_geometries/00_Introduction.md","url":"/geophp-documentation/geometries/#introduction","slug":"introduction","title":"Introduction","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/01_Point.md","path":"content/_geometries/01_Point.md","url":"/geophp-documentation/geometries/#point","slug":"point","title":"Point","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/02_Line.md","path":"content/_geometries/02_Line.md","url":"/geophp-documentation/geometries/#line","slug":"line","title":"Line","level":2,"collapsed":true,"roles":[],"scope":[]},{"type":"article","id":"content/_geometries/03_Polygon.md","path":"content/_geometries/03_Polygon.md","url":"/geophp-documentation/geometries/#polygon","slug":"polygon","title":"Polygon","level":2,"collapsed":true,"roles":[],"scope":[]}]},{"type":"section","id":"content/_contributing/","title":"Contributing","level":1,"collapsed":true,"newTab":false,"path":"content/_contributing/","url":"/geophp-documentation/contributing/","roles":[],"scope":[],"children":[{"type":"article","id":"content/_contributing/contributing.md","path":"content/_contributing/contributing.md","url":"/geophp-documentation/contributing/#contributing","slug":"contributing","title":"Contributing","level":2,"collapsed":true,"roles":[],"scope":[]}]}]}, 'presidium-navigation');
+    window.presidium.tooltips.load({ "baseurl": "/geophp-documentation" });
+</script>
+
+
+
+
+
+</body>
+</html>

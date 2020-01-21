@@ -1,0 +1,89 @@
+#
+# Site Metadata
+#
+# - name: Site name
+# _ baseurl: Optional URL to use if documentation is hosted in a subdirectory `domain.com/{baseurl}`
+# - footer: Footer copy
+# - logo: Menu bar logo.
+# - show: Hide or show article components. Defaults to true
+# - external: Links to external sources
+#    - authors-url: base url for article authors
+# NOTE: If you have a baseurl be sure to append it to any static content path e.g.: ${baseurl}/media/images/logo.png
+# name: GeoPHP
+baseurl: /geophp-documentation
+footer: Made with love ❤
+logo: ${baseurl}/media/images/logo.jpg
+images: ${baseurl}/media/images
+show:
+  status: true
+  author: true
+external:
+  authors-url: https://github.com/jware-solutions
+
+# Optional cname record to export with your site (for hosting on github pages)
+# cname:
+
+#
+# Jekyll collections.
+#
+# Collections represent the top level grouping of articles for a site.
+# Collections directories require a leading underscore: "./content/_{collection-name}/"
+#
+collections:
+    overview:
+    getting-started:
+    geometries:
+    contributing:
+
+#
+# Site Sections
+#
+# Describes the top level structure of your site
+# - tile: Title for top level menu title
+# - path: Path to generated article collection
+# - collection: The Jekyll collection to use for generating a sub menu of articles (optional).
+# - collapsed: Whether articles should show in a tree or collapsed into a single item
+# - external-url:
+#     href: URL of a section that opens up an external site
+#     new-tab: Whether the external-url should open up in a new tab (optional - defaults to true)
+# - scope: Optional scope for all articles in section [internal|external]
+#
+sections:
+  - title: "Overview"
+    url: "/"
+    collection: overview
+    collapsed: true
+
+  - title: "Getting Started"
+    url: "/getting-started/"
+    collection: getting-started
+    collapsed: true
+
+  - title: "Geometries"
+    url: "/geometries/"
+    collection: geometries
+
+  - title: "Contributing"
+    url: "/contributing/"
+    collection: contributing
+    collapsed: true
+
+
+#
+# Optional Role Filters
+#
+
+#roles:
+#  label: "Show documentation for"
+#  all: "All Roles"
+#  options:
+#    - "Business Analyst"
+#    - "Developer"
+#    - "Tester"
+
+# Optional support for versioned docunentation.
+# See http://presidium.spandigital.net/recipes/versioning/ for more info
+versioned: false
+
+sass:
+    sass_dir: media/css/_sass

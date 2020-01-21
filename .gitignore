@@ -1,0 +1,8 @@
+node_modules
+npm-debug.log
+dist
+.jekyll
+.jekyll-cache
+*.iml
+.idea
+.vscode

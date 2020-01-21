@@ -1,0 +1,28 @@
+{
+  "name": "geophp-documentation",
+  "version": "0.1.0",
+  "description": "Documentation project for JWare GeoPHP.",
+  "license": "Apache-2.0",
+  "homepage": "",
+  "authors": [
+    {
+      "name": "JWare"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "scripts": {
+    "clean": "presidium clean",
+    "install": "presidium install",
+    "build": "presidium build",
+    "start": "presidium start",
+    "validate": "presidium validate",
+    "publish": "rm -fr docs/ && npm run clean && npm run build && cp -r dist/site/ docs",
+    "gh-pages": "presidium gh-pages"
+  },
+  "devDependencies": {
+    "presidium-core": "^0.1.46"
+  }
+}
