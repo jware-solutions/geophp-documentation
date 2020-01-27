@@ -10,4 +10,4 @@ GeoPHP is a library of geospatial functions based on GeoRust and Turf.js. It was
 - 🛠 Tested: all methods are covered by unit tests.
 - 🌟 A lot of examples!
 
-See [all the geometries available](/geometries/)!
+See [all the geometries available](geometries/)!
