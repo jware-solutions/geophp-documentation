@@ -68,6 +68,13 @@ sections:
     collection: contributing
     collapsed: true
 
+  - title: See on Github!
+    collapsed: true
+    external-url:
+      href: "https://github.com/jware-solutions/GeoPHP"
+      new-tab: true
+    collection: github
+
 
 #
 # Optional Role Filters
